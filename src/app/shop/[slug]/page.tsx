@@ -53,7 +53,7 @@ export default function ProductPage() {
 
     return (
         <div className="pt-24 pb-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                 {/* Back Button */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -98,12 +98,12 @@ export default function ProductPage() {
                         </div>
 
                         {/* Thumbnails */}
-                        <div className="flex gap-3">
+                        <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2">
                             {product.images.map((image, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setSelectedImage(index)}
-                                    className={`relative w-20 h-24 rounded-lg overflow-hidden border-2 transition-all ${selectedImage === index ? 'border-indigo-600' : 'border-transparent hover:border-gray-300'
+                                    className={`relative w-14 h-18 sm:w-20 sm:h-24 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${selectedImage === index ? 'border-indigo-600' : 'border-transparent hover:border-gray-300'
                                         }`}
                                 >
                                     <Image src={image} alt={`${product.name} ${index + 1}`} fill className="object-cover" />
@@ -124,16 +124,16 @@ export default function ProductPage() {
                                 <Badge variant="outline" className="capitalize">{product.fit}</Badge>
                                 <Badge variant="outline" className="capitalize">{product.wash} Wash</Badge>
                             </div>
-                            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">{product.name}</h1>
                             <div className="flex items-center gap-3">
-                                <span className="text-3xl font-bold text-indigo-600">${product.price.toFixed(2)}</span>
+                                <span className="text-2xl sm:text-3xl font-bold text-indigo-600">${product.price.toFixed(2)}</span>
                                 {product.originalPrice && (
-                                    <span className="text-xl text-gray-400 line-through">${product.originalPrice.toFixed(2)}</span>
+                                    <span className="text-lg sm:text-xl text-gray-400 line-through">${product.originalPrice.toFixed(2)}</span>
                                 )}
                             </div>
                         </div>
 
-                        <p className="text-gray-600 leading-relaxed">{product.description}</p>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{product.description}</p>
 
                         <Separator />
 
@@ -190,7 +190,7 @@ export default function ProductPage() {
                         <div className="flex gap-3">
                             <Button
                                 size="lg"
-                                className="flex-1 bg-indigo-600 hover:bg-indigo-700 h-14 text-lg"
+                                className="flex-1 bg-indigo-600 hover:bg-indigo-700 h-11 sm:h-14 text-sm sm:text-lg"
                                 onClick={handleAddToCart}
                             >
                                 Add to Cart
@@ -198,29 +198,29 @@ export default function ProductPage() {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="h-14"
+                                className="h-11 sm:h-14"
                                 onClick={() => setIsWishlisted(!isWishlisted)}
                             >
                                 <Heart className={`h-5 w-5 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
                             </Button>
-                            <Button size="lg" variant="outline" className="h-14">
+                            <Button size="lg" variant="outline" className="h-11 sm:h-14">
                                 <Share2 className="h-5 w-5" />
                             </Button>
                         </div>
 
                         {/* Trust Badges */}
-                        <div className="grid grid-cols-3 gap-4 py-4">
+                        <div className="grid grid-cols-3 gap-2 sm:gap-4 py-4">
                             <div className="text-center">
-                                <Truck className="h-6 w-6 mx-auto text-indigo-600 mb-2" />
-                                <span className="text-xs text-gray-600">Free Shipping</span>
+                                <Truck className="h-5 w-5 sm:h-6 sm:w-6 mx-auto text-indigo-600 mb-1 sm:mb-2" />
+                                <span className="text-[10px] sm:text-xs text-gray-600">Free Shipping</span>
                             </div>
                             <div className="text-center">
-                                <RefreshCw className="h-6 w-6 mx-auto text-indigo-600 mb-2" />
-                                <span className="text-xs text-gray-600">Easy Returns</span>
+                                <RefreshCw className="h-5 w-5 sm:h-6 sm:w-6 mx-auto text-indigo-600 mb-1 sm:mb-2" />
+                                <span className="text-[10px] sm:text-xs text-gray-600">Easy Returns</span>
                             </div>
                             <div className="text-center">
-                                <Shield className="h-6 w-6 mx-auto text-indigo-600 mb-2" />
-                                <span className="text-xs text-gray-600">Secure Payment</span>
+                                <Shield className="h-5 w-5 sm:h-6 sm:w-6 mx-auto text-indigo-600 mb-1 sm:mb-2" />
+                                <span className="text-[10px] sm:text-xs text-gray-600">Secure Payment</span>
                             </div>
                         </div>
 
@@ -270,8 +270,8 @@ export default function ProductPage() {
                 {/* Related Products */}
                 {relatedProducts.length > 0 && (
                     <section className="mt-20">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-8">You May Also Like</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">You May Also Like</h2>
+                        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                             {relatedProducts.map((product, index) => (
                                 <ProductCard key={product.id} product={product} index={index} />
                             ))}

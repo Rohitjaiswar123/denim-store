@@ -73,7 +73,7 @@ export default function CheckoutPage() {
 
     return (
         <div className="pt-24 pb-20 bg-gray-50 min-h-screen">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ export default function CheckoutPage() {
                             Back to Cart
                         </Link>
                     </Button>
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900">Checkout</h1>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Checkout</h1>
                 </motion.div>
 
                 {/* Progress Steps */}
@@ -101,8 +101,8 @@ export default function CheckoutPage() {
                             <div key={step.id} className="flex items-center">
                                 <div
                                     className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-colors ${currentStep >= step.id
-                                            ? 'bg-indigo-600 border-indigo-600 text-white'
-                                            : 'border-gray-300 text-gray-400'
+                                        ? 'bg-indigo-600 border-indigo-600 text-white'
+                                        : 'border-gray-300 text-gray-400'
                                         }`}
                                 >
                                     {currentStep > step.id ? (
@@ -138,7 +138,7 @@ export default function CheckoutPage() {
                         <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
                             {currentStep === 1 && (
                                 <div className="space-y-6">
-                                    <h2 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                                    <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">Contact Information</h2>
 
                                     <div>
                                         <Label htmlFor="email">Email</Label>
@@ -196,7 +196,7 @@ export default function CheckoutPage() {
 
                             {currentStep === 2 && (
                                 <div className="space-y-6">
-                                    <h2 className="text-xl font-bold text-gray-900 mb-6">Shipping Address</h2>
+                                    <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">Shipping Address</h2>
 
                                     <div>
                                         <Label htmlFor="address">Address</Label>
@@ -263,7 +263,7 @@ export default function CheckoutPage() {
 
                                     <Separator className="my-6" />
 
-                                    <h3 className="font-semibold text-gray-900 mb-4">Shipping Method</h3>
+                                    <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">Shipping Method</h2>
                                     <div className="space-y-3">
                                         <label className={`flex items-center justify-between p-4 border rounded-lg cursor-pointer transition-colors ${formData.shippingMethod === 'standard' ? 'border-indigo-600 bg-indigo-50' : 'hover:border-gray-400'}`}>
                                             <div className="flex items-center gap-3">
@@ -305,7 +305,7 @@ export default function CheckoutPage() {
 
                             {currentStep === 3 && (
                                 <div className="space-y-6">
-                                    <h2 className="text-xl font-bold text-gray-900 mb-6">Payment Details</h2>
+                                    <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">Payment Details</h2>
 
                                     <div>
                                         <Label htmlFor="cardName">Name on Card</Label>
@@ -359,7 +359,7 @@ export default function CheckoutPage() {
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center gap-2 p-4 bg-gray-50 rounded-lg">
+                                    <div className="flex items-center gap-1 sm:gap-2 p-4 bg-gray-50 rounded-lg">
                                         <Lock className="h-5 w-5 text-green-600" />
                                         <p className="text-sm text-gray-600">Your payment information is encrypted and secure</p>
                                     </div>
@@ -381,7 +381,7 @@ export default function CheckoutPage() {
                                 <Button
                                     type="submit"
                                     size="lg"
-                                    className="flex-1 bg-indigo-600 hover:bg-indigo-700"
+                                    className="flex-1 h-11 sm:h-14 text-base sm:text-lg bg-indigo-600 hover:bg-indigo-700"
                                 >
                                     {currentStep === 3 ? 'Place Order' : 'Continue'}
                                 </Button>
@@ -395,7 +395,7 @@ export default function CheckoutPage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 sticky top-24">
+                        <div className="bg-white rounded-xl sm:rounded-2xl border p-4 sm:p-6 sticky top-24">
                             <h2 className="text-xl font-bold text-gray-900 mb-6">Order Summary</h2>
 
                             <div className="space-y-4 mb-6">

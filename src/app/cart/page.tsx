@@ -32,7 +32,7 @@ export default function CartPage() {
 
     return (
         <div className="pt-24 pb-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ export default function CartPage() {
                             Continue Shopping
                         </Link>
                     </Button>
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900">Shopping Cart</h1>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Shopping Cart</h1>
                     <p className="text-gray-600 mt-2">{items.length} item{items.length > 1 ? 's' : ''} in your cart</p>
                 </motion.div>
 
@@ -58,9 +58,9 @@ export default function CartPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="flex gap-4 md:gap-6 p-4 md:p-6 bg-white rounded-2xl shadow-sm"
+                                className="flex gap-3 sm:gap-4 md:gap-6 p-3 sm:p-4 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-sm"
                             >
-                                <div className="relative w-24 h-32 md:w-32 md:h-40 rounded-lg overflow-hidden flex-shrink-0">
+                                <div className="relative w-20 h-26 sm:w-24 sm:h-32 md:w-32 md:h-40 rounded-lg overflow-hidden flex-shrink-0">
                                     <Image
                                         src={item.product.images[0]}
                                         alt={item.product.name}
@@ -74,11 +74,11 @@ export default function CartPage() {
                                         <div>
                                             <Link
                                                 href={`/shop/${item.product.slug}`}
-                                                className="font-semibold text-gray-900 hover:text-indigo-600 line-clamp-1"
+                                                className="font-semibold text-gray-900 hover:text-indigo-600 line-clamp-1 text-sm sm:text-base"
                                             >
                                                 {item.product.name}
                                             </Link>
-                                            <p className="text-sm text-gray-500 mt-1">
+                                            <p className="text-xs sm:text-sm text-gray-500 mt-1">
                                                 Size: {item.size} | Color: {item.color}
                                             </p>
                                         </div>
@@ -116,7 +116,7 @@ export default function CartPage() {
                                                 <Plus className="h-3 w-3" />
                                             </Button>
                                         </div>
-                                        <p className="text-lg font-semibold text-indigo-600">
+                                        <p className="text-base sm:text-lg font-semibold text-indigo-600">
                                             ${(item.product.price * item.quantity).toFixed(2)}
                                         </p>
                                     </div>
@@ -131,8 +131,8 @@ export default function CartPage() {
                         animate={{ opacity: 1, x: 0 }}
                         className="lg:col-span-1"
                     >
-                        <div className="bg-white rounded-2xl shadow-sm p-6 sticky top-24">
-                            <h2 className="text-xl font-bold text-gray-900 mb-6">Order Summary</h2>
+                        <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-6 sticky top-24">
+                            <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Order Summary</h2>
 
                             <div className="space-y-4">
                                 <div className="flex justify-between text-gray-600">
@@ -166,7 +166,7 @@ export default function CartPage() {
 
                             <Button
                                 size="lg"
-                                className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 h-14 text-lg"
+                                className="w-full mt-4 sm:mt-6 bg-indigo-600 hover:bg-indigo-700 h-12 sm:h-14 text-base sm:text-lg"
                                 asChild
                             >
                                 <Link href="/checkout">Proceed to Checkout</Link>

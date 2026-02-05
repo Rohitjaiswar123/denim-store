@@ -39,12 +39,12 @@ export function Navbar() {
                     : 'bg-transparent'
                     }`}
             >
-                <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16 md:h-20">
                         {/* Logo */}
                         <Link href="/" className="flex items-center space-x-2">
                             <motion.span
-                                className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent"
+                                className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent"
                                 whileHover={{ scale: 1.05 }}
                             >
                                 DENIM
@@ -100,7 +100,7 @@ export function Navbar() {
                                 className={`md:hidden ${isScrolled ? '' : 'text-white hover:bg-white/10'}`}
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             >
-                                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                                {isMobileMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
                             </Button>
                         </div>
                     </div>
@@ -115,12 +115,12 @@ export function Navbar() {
                             exit={{ opacity: 0, height: 0 }}
                             className="md:hidden bg-white/95 backdrop-blur-lg border-t"
                         >
-                            <div className="px-4 py-4 space-y-3">
+                            <div className="px-3 sm:px-4 py-3 sm:py-4 space-y-2 sm:space-y-3">
                                 {navLinks.map((link) => (
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className="block py-2 text-gray-700 hover:text-indigo-600 font-medium"
+                                        className="block py-2 text-gray-700 hover:text-indigo-600 font-medium text-sm sm:text-base"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         {link.label}

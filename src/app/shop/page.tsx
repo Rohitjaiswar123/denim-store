@@ -78,14 +78,14 @@ function ShopContent() {
 
     return (
         <div className="pt-24 pb-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="mb-8"
                 >
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                         {initialNew === 'true' ? 'New Arrivals' : 'All Jeans'}
                     </h1>
                     <p className="text-gray-600">
@@ -93,7 +93,7 @@ function ShopContent() {
                     </p>
                 </motion.div>
 
-                <div className="flex gap-8">
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
                     {/* Filter Sidebar */}
                     <FilterSidebar
                         selectedFits={selectedFits}
@@ -110,7 +110,7 @@ function ShopContent() {
                     {/* Main Content */}
                     <div className="flex-1">
                         {/* Toolbar */}
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 bg-white p-4 rounded-xl shadow-sm">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6 bg-white p-3 sm:p-4 rounded-xl shadow-sm">
                             <div className="flex items-center gap-2">
                                 <Button
                                     variant={viewMode === 'grid' ? 'default' : 'ghost'}
@@ -131,7 +131,7 @@ function ShopContent() {
                             </div>
 
                             <Select value={sortBy} onValueChange={setSortBy}>
-                                <SelectTrigger className="w-[180px]">
+                                <SelectTrigger className="w-full sm:w-[180px]">
                                     <SelectValue placeholder="Sort by" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -146,9 +146,9 @@ function ShopContent() {
 
                         {/* Products Grid */}
                         {filteredProducts.length > 0 ? (
-                            <div className={`grid gap-6 ${viewMode === 'grid'
-                                    ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3'
-                                    : 'grid-cols-1'
+                            <div className={`grid gap-3 sm:gap-4 lg:gap-6 ${viewMode === 'grid'
+                                ? 'grid-cols-2 sm:grid-cols-2 xl:grid-cols-3'
+                                : 'grid-cols-1'
                                 }`}>
                                 {filteredProducts.map((product, index) => (
                                     <ProductCard key={product.id} product={product} index={index} />
